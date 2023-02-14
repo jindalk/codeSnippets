@@ -8,7 +8,8 @@ zcat fragments.tsv.gz | awk '{if($1~/mm10/) {x=$0; gsub("mm10_","",$x); print $x
 mload samtools; bgzip mm10_fragments.tsv #gzip file
 mload tabix; tabix -f -p bed -0 mm10_fragments.tsv.gz #Create tabix
 ```
-
+## Slurm Job submissions
+1. To unbuffer python job output, run as ```python -u <python_script>```
 
 ## Python
 1. Save data to pickle file <br/>
