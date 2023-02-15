@@ -18,3 +18,4 @@ import pickle
 with open('my_file.pkl', 'wb') as f:
     pickle.dump(data, f)
 ```
+2. Check if scipy sparse matrix is the right format, this is helpful when jumping around scipy versions ```<mtx_name>.check_format()```
