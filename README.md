@@ -8,6 +8,11 @@ zcat fragments.tsv.gz | awk '{if($1~/mm10/) {x=$0; gsub("mm10_","",$x); print $x
 mload samtools; bgzip mm10_fragments.tsv #gzip file
 mload tabix; tabix -f -p bed -0 mm10_fragments.tsv.gz #Create tabix
 ```
+2. Replace substring with another substring in a string. E.g. Replace Day2 with Day5 in al file names in a folder:
+```
+for i in $(ls); do echo ${i//Day2/Day5}; done
+```
+
 ## Slurm
 1. To unbuffer python job output, run as ```python -u <python_script>```
 2. To run a bash command inside a running slurm job ```srun --ntasks-per-node=1 --jobid=<job_id> <command>```
