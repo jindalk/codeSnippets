@@ -12,6 +12,10 @@ mload tabix; tabix -f -p bed -0 mm10_fragments.tsv.gz #Create tabix
 ```
 for i in $(ls); do echo ${i//Day2/Day5}; done
 ```
+3. List files not matching a regex pattern:
+```
+ls !(*<pattern>*)
+```
 
 ## Slurm
 1. To unbuffer python job output, run as ```python -u <python_script>```
