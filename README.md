@@ -16,6 +16,10 @@ for i in $(ls); do echo ${i//Day2/Day5}; done
 ```
 ls !(*<pattern>*)
 ```
+4. Convert multi-line list into comma separated string
+```
+ls * | paste -s -d ,
+```
 
 ## Slurm
 1. To unbuffer python job output, run as ```python -u <python_script>```
