@@ -20,6 +20,10 @@ ls !(*<pattern>*)
 ```
 ls * | paste -s -d ,
 ```
+E.g. to convert a list of fastqs to cellranger list of samples do :
+```
+for i in 2 3 4; do awk -F'/' '{print substr($4,0,33)}' <(ls ../fq/Morris_ntt/*SI-NA-H$i*) | sort | uniq | paste -s -d , >> fq_id; done
+```
 
 ## Slurm
 1. To unbuffer python job output, run as ```python -u <python_script>```
