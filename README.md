@@ -24,6 +24,10 @@ E.g. to convert a list of fastqs to cellranger list of samples do :
 ```
 for i in 2 3 4; do awk -F'/' '{print substr($4,0,33)}' <(ls ../fq/Morris_ntt/*SI-NA-H$i*) | sort | uniq | paste -s -d , >> fq_id; done
 ```
+Parse CSV in bash and run bedtools on pairs of files:
+```
+while IFS=, read -r col1 col2; do echo $col1-$col2; bedtools intersect -a bedfiles/$col1 -b bedfiles/$col2 | bedtools sort -i - > temp/$col1-$col2; done < file_list_pairs
+```
 
 ## Slurm
 1. To unbuffer python job output, run as ```python -u <python_script>```
